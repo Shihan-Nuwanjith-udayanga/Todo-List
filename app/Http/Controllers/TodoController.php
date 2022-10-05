@@ -14,7 +14,10 @@ class TodoController extends Controller
     }
 
     public function index(){
-        return view('pages\todo\index');
+
+        $response['tasks']=$this->task->all();
+        // dd($response);
+        return view('pages\todo\index')->with($response);
     }
 
     public function store(Request $request){
@@ -23,5 +26,8 @@ class TodoController extends Controller
 
         // $this->task->title = $request->title;
         // $this->task->save();
+
+        return redirect()->back();
+        // return redirect()->route('home');
     }
 }
