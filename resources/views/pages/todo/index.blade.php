@@ -35,13 +35,20 @@
                             <th scope="row">{{ $key++ }}</th>
                             <td>{{ $task->title }}</td>
                             <td>
-                                @if ($task->done==0)
+                                @if ($task->done == 0)
                                     <span class="badge bg-warning">Not Completed</span>
                                 @else
                                     <span class="badge bg-success">Completed</span>
                                 @endif
                             </td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('todo.delete', $task->id) }}" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <a href="{{ route('todo.done', $task->id) }}" class="btn btn-success">
+                                    <i class="fas fa-check-circle"></i>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -70,7 +77,7 @@
             margin: auto;
         }
 
-        #button_style{
+        #button_style {
             padding-left: 70px;
         }
 
