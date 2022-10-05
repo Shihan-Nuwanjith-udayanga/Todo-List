@@ -13,7 +13,16 @@
 
     @yield('content')
 
-    
+
     @include('libraries\scripts')
 </body>
 </html>
+
+{{--  @push('css')
+    <style>
+        body{
+            width: 90%;
+            justify-content: center;
+        }
+    </style>
+@endpush  --}}
